@@ -1,0 +1,34 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9099/realms/master
+          jwk-set-uri: http://localhost:9099/realms/master/protocol/openid-connect/certs
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/keyclock
+    username: khaled
+    password: khaled
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080
+  servlet:
+    context-path: /produits
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
